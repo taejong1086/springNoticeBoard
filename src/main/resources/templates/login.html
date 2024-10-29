@@ -3,22 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>회원가입</title>
+    <title>로그인</title>
 </head>
 <body>
-<h2>회원가입</h2>
-<form action="/register" method="post">
+<h2>로그인</h2>
+<form action="/login" method="post">
     <label for="username">사용자 이름:</label>
     <input type="text" id="username" name="username" required>
 
     <label for="password">비밀번호:</label>
     <input type="password" id="password" name="password" required>
 
-    <label for="admin">관리자 권한:</label>
-    <input type="checkbox" id="admin" name="admin">
-
-    <button type="submit">회원가입</button>
+    <button type="submit">로그인</button>
 </form>
-<p>이미 계정이 있으신가요? <a href="/login">로그인</a></p>
+<p>계정이 없으신가요? <a href="/register">회원가입</a></p>
 </body>
 </html>

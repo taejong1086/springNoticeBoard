@@ -15,7 +15,7 @@ public class MainController {
     @Autowired
     private PostService postService;
 
-    @GetMapping("/home")
+    @GetMapping("/")
     public String adminDashboard(Model model) {
         List<Post> posts = postService.findAllPosts(); // 게시글 목록 가져오기
         model.addAttribute("posts", posts); // 모델에 추가
