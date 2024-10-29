@@ -4,6 +4,10 @@ java17, mariadb, sts
 # script
 
 ```sql
+create database my_database2;
+```
+
+```sql
 CREATE TABLE posts (
 id BIGINT AUTO_INCREMENT PRIMARY KEY,
 title VARCHAR(255) NOT NULL,
