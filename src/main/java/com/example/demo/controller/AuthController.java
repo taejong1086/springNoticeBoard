@@ -35,19 +35,18 @@ public class AuthController {
         return "login";
     }
 
+
+
     @PostMapping("/login")
     public String login(@RequestParam String username, @RequestParam String password, Model model) {
         String role = userService.authenticate(username, password);
 
         if (role != null) {
-            if (role.equals("ROLE_ADMIN")) {
-                return "redirect:/admin/dashboard";
-            } else {
-                return "redirect:/posts";
-            }
+            return "redirect:/posts";  // 또는 return "redirect:/admin/dashboard"; - 필요 시 조건 추가
         } else {
             model.addAttribute("error", "잘못된 사용자 이름 또는 비밀번호입니다.");
             return "login";
         }
     }
+
 }

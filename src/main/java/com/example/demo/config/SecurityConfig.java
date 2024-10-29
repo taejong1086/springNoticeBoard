@@ -2,7 +2,6 @@ package com.example.demo.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -18,13 +17,13 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.ignoringRequestMatchers("/posts/**", "/register/**"))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/static/**", "/images/**", "/css/**", "/js/**", "/register/**", "/login").permitAll()
+                        .requestMatchers("/static/**", "/images/**", "/css/**", "/js/**", "/register/**", "/login", "/error").permitAll()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
                         .loginPage("/login")
-                        .defaultSuccessUrl("/posts", true)  // 로그인 성공 시 이동할 기본 URL
+                        .defaultSuccessUrl("/posts", true)  // 로그인 성공 시 "/posts"로 리다이렉트
                         .failureUrl("/login?error=true")  // 로그인 실패 시 이동할 URL
                         .permitAll()
                 )
